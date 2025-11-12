@@ -1,11 +1,12 @@
-from abc import ABC, abstractmethod
+class Quote:
+    def __init__(self, text, author):
+        self.text = text
+        self.author = author
 
+    def __str__(self):
+        return f"Объект: {self.__class__.__name__}, Цитата: {self.text}, Автор: {self.author}"
 
-class QuoteBase(ABC):
-    def __init__(self, base_url_api: str):
-        self.base_url_api = base_url_api
-
-    # абстрактный метод, который будем реализовывать в наследнике
-    @abstractmethod
-    def get_quote(self):
-        pass
+    def __eq__(self, other):
+        if not isinstance(other, Quote):
+            return NotImplemented
+        return self.author == other.author and self.text == other.text
