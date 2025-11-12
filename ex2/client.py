@@ -2,13 +2,20 @@ import requests
 
 
 class Client:
-    def __init__(self, api_url: str):
-        self.api_url = api_url
+    def __init__(self, url_for_request: str):
+        # основной url для запросов
+        self.url_for_request = url_for_request
 
-    def get_request(self):
-        try:
-            response = requests.get(
-                url=self.api_url,
-            )
-        except Exception:
-            print("Что-то пошло не так")
+    def get_request(
+        self,
+        path: str,
+        params: dict = None,
+    ):
+        # path это параметр пути/эндпоинт, куда отправится запрос
+        # params это параметры запроса, все что будет указано после знака?
+        response = requests.get(
+            f"{self.url_for_request}{path}",
+            params=params,
+        )
+        result = response.json()
+        return result
