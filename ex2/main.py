@@ -12,4 +12,4 @@ if __name__ == "__main__":
     tracker.add_quote()
     tracker.add_quote()
     print(tracker)
-    print(tracker.__dict__)
+    # print(tracker.__dict__)
