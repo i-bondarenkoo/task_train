@@ -10,3 +10,6 @@ class Quote:
         if not isinstance(other, Quote):
             return NotImplemented
         return self.author == other.author and self.text == other.text
+
+    # def __repr__(self):
+    #     return f"Qoute(text={self.text}, author={self.author})"

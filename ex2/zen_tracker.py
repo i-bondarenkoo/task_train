@@ -41,3 +41,6 @@ class ZenTracker(QuoteBase):
     #     return "\n".join(list_string)
     def __str__(self):
         return "\n".join(str(q) for q in self.list_quotes)
+
+    def __repr__(self):
+        return str([q for q in self.list_quotes])
