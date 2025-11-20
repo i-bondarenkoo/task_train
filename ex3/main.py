@@ -1,8 +1,10 @@
 from client import Client
-from reddit import RedditNews
+from hacker_news import HackerNews
 from news import News
 
 if __name__ == "__main__":
-    reddit1 = RedditNews("https://www.reddit.com")
-    reddit1.get_news(limit=2)
-    print(reddit1)
+    hacker_news = HackerNews("https://hacker-news.firebaseio.com")
+    print(hacker_news.get_list_ids())
+    print("-----")
+    hacker_news.get_news(25)
+    print(hacker_news)
