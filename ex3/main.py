@@ -7,15 +7,13 @@ import asyncio
 
 async def main():
     hacker_news = HackerNews("https://hacker-news.firebaseio.com")
-    # print(hacker_news.get_list_ids())
-    # print("-----")
-    hacker_news.get_news(25)
+    # hacker_news.get_news(5)
+    hacker_news.get_news(5)
     print(hacker_news)
     hacker_news_async = HackerNewsAsync("https://hacker-news.firebaseio.com")
     await hacker_news_async.async_client.create_session()
-    await hacker_news_async.get_news(25)
+    await hacker_news_async.get_news(5)
     print(hacker_news_async)
-
     await hacker_news_async.async_client.close()
 
 

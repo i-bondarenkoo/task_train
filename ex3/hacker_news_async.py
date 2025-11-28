@@ -2,6 +2,7 @@ from base_news import BaseNewsSource
 from async_client import AsyncClient
 from news import News
 from dec import count_time
+import asyncio
 
 
 class HackerNewsAsync(BaseNewsSource):
@@ -25,14 +26,19 @@ class HackerNewsAsync(BaseNewsSource):
     @count_time
     async def get_news(self, limit: int = 5):
         response_list_id: list[int] = await self.get_list_ids()
-        for r in response_list_id[:limit]:
-            response = await self.async_client.get_request(
+        # список корутин
+        tasks = [
+            self.async_client.get_request(
                 url="https://hacker-news.firebaseio.com",
-                path=f"/v0/item/{r}.json",
+                path=f"/v0/item/{item_id}.json",
             )
-            news: News = self._convert_dict_to_news_object(response)
-            self.list_news_async.append(news)
+            for item_id in response_list_id[:limit]
+        ]
+        responses = await asyncio.gather(*tasks)
 
+        for response in responses:
+            news = self._convert_dict_to_news_object(response)
+            self.list_news_async.append(news)
         return self.list_news_async
 
     def _convert_dict_to_news_object(self, response: dict):
