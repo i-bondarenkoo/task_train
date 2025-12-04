@@ -13,9 +13,9 @@ class Worker:
     async def run_task(self):
 
         while True:
-            current_task = self.queue.get_task()
+            current_task = await self.queue.get_task()
             print("Задача выполняется")
+            current_task.status = TaskStatus.running
             await asyncio.sleep(3)
+            current_task.status = TaskStatus.done
             print("Выполненеие задачи завершено")
-            to_dict = {current_task: "200 ok"}
-            self.storage.success.update(to_dict)

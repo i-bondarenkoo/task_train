@@ -1,12 +1,6 @@
 from enum import Enum
 
 
-class TaskType(str, Enum):
-    download = "download"
-    process = "process"
-    compute = "compute"
-
-
 class TaskStatus(str, Enum):
     pending = "pending"
     running = "running"
@@ -19,11 +13,9 @@ class Task:
 
     def __init__(
         self,
-        type: TaskType,
         payload: dict | None = None,
     ):
         self.id = Task.generate_id()
-        self.type = type
         self._status = TaskStatus.pending
         self.payload = payload
 
@@ -43,4 +35,4 @@ class Task:
         return cls.id_counter
 
     def __str__(self):
-        return f"Task(id={self.id}, type={self.type}, status={self.status}, payload={self.payload})"
+        return f"Task(id={self.id}, status={self.status}, payload={self.payload})"
