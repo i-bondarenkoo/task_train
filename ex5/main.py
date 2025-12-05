@@ -1,10 +1,9 @@
-from task import Task
-
+from f_manager import fm
 
 if __name__ == "__main__":
-    t1 = Task("download")
-    print(t1)
-    t2 = Task("download")
-    t3 = Task("download")
-    print(t2)
-    print(t3.status)
+    print(fm.find_files())
+    print(
+        fm.get_basename(
+            "C:/Users/i.bondarenko/Desktop/task_practice/ex5/example123.txt"
+        )
+    )
