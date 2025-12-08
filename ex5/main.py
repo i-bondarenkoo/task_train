@@ -4,14 +4,24 @@ import asyncio
 
 
 async def main():
-    result = p.count_lines(
-        "C:/Users/i.bondarenko/Desktop/task_practice/ex5/example/123.txt",
-    )
+    # result1 = p.count_lines(
+    #     "C:/Users/i.bondarenko/Desktop/task_practice/ex5/example/1.txt",
+    # )
 
+    # result2 = p.count_chars(
+    #     "C:/Users/i.bondarenko/Desktop/task_practice/ex5/example/2.txt",
+    # )
+    # task1 = asyncio.create_task(result1)
+    # task2 = asyncio.create_task(result2)
+    # await task1
+    # await task2
+    result = await p.count_lines(
+        "C:/Users/i.bondarenko/Desktop/task_practice/ex5/example/1.txt",
+    )
+    print(result)
     result2 = await p.count_chars(
         "C:/Users/i.bondarenko/Desktop/task_practice/ex5/example/2.txt",
     )
-    print(result)
     print(result2)
 
 
