@@ -1,4 +1,5 @@
 import os
+import aiofiles
 
 
 class FileManager:
@@ -8,7 +9,7 @@ class FileManager:
 
     def find_files(self):
         for f in os.listdir(self.path):
-            full_path: str = self.path + str(f)
+            full_path: str = self.path + "/" + str(f)
             self.list_files.append(full_path)
         return self.list_files
 
@@ -17,12 +18,16 @@ class FileManager:
         return filename
 
     async def read_file(self, file: str):
-        async with open(
+        async with aiofiles.open(
             file=file,
             mode="r",
             encoding="utf-8",
         ) as file:
-            pass
+            content = await file.read()
+        return content
+
+    def __str__(self):
+        return "\n".join(f for f in self.list_files)
 
 
 fm = FileManager()
