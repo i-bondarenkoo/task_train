@@ -37,16 +37,87 @@
 
 
 # print(filter_users(users))
-numbers = [2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 3]
+# numbers = [2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 3]
 
 
-def search_digit(n: list):
-    d1 = {}
-    for i in n:
-        if i not in d1.keys():
-            d1[i] = 1
-        else:
-            return i
+# def search_digit(n: list):
+#     d1 = {}
+#     for i in n:
+#         if i not in d1.keys():
+#             d1[i] = 1
+#         else:
+#             return i
 
 
-print(search_digit(numbers))
+# print(search_digit(numbers))
+# ----------------СТРОКИ-----------------
+# s = "  Hello,   world!  This   is  Python  "
+
+
+# def make_string(s: str):
+#     result = s.split()
+#     return " ".join(result).lower()
+
+
+# print(make_string(s))
+
+# s = "Python is AWESOME and powerful"
+
+
+# def count_chars(s: str):
+#     result = s.lower().split()
+#     return " ".join(map(lambda x: x.upper() if len(x) > 4 else x.lower(), result))
+
+
+# print(count_chars(s))
+# s = "abccba"
+
+
+# def check_polindrom(s: str):
+#     s = s.lower()
+#     s2 = s[::-1]
+#     return s == s2
+
+
+# print(check_polindrom(s))
+
+# s = "python java cplusplus go"
+
+
+# # Нужно вернуть строку, где:
+# # в каждом слове буквы отсортированы по алфавиту
+# # порядок слов сохраняется
+# def make_string(s: str):
+#     words = s.split()
+#     sorted_words = map(lambda w: "".join(sorted(w)), words)
+#     result = " ".join(sorted_words)
+#     return result
+
+
+# print(make_string(s))
+
+# s = "is2 Thi1s T4est 3a"
+# # Нужно переставить слова в правильный порядок по цифрам и убрать цифры, чтобы получить строку
+
+
+# def func1(s: str):
+#     words = s.split()
+#     sorted_words = sorted(
+#         words, key=lambda x: int(next(num for num in x if num.isdigit()))
+#     )
+#     return " ".join(sorted_words)
+
+
+# print(func1(s))
+
+
+s = "py3thon ja2va go1"
+
+
+def f1(s: str):
+    words = s.split()
+    clean_words = map(lambda w: "".join(filter(str.isalpha, w)), words)
+    return " ".join(clean_words)
+
+
+print(f1(s))
