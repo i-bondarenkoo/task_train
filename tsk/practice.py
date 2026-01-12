@@ -96,28 +96,31 @@
 
 # print(make_string(s))
 
-# s = "is2 Thi1s T4est 3a"
+s = "is2 Thi1s T4est 3a"
 # # Нужно переставить слова в правильный порядок по цифрам и убрать цифры, чтобы получить строку
 
 
-# def func1(s: str):
-#     words = s.split()
-#     sorted_words = sorted(
-#         words, key=lambda x: int(next(num for num in x if num.isdigit()))
-#     )
-#     return " ".join(sorted_words)
-
-
-# print(func1(s))
-
-
-s = "py3thon ja2va go1"
-
-
-def f1(s: str):
+def func1(s: str):
     words = s.split()
-    clean_words = map(lambda w: "".join(filter(str.isalpha, w)), words)
-    return " ".join(clean_words)
+    sorted_words = sorted(
+        words, key=lambda w: int(next(num for num in w if num.isdigit()))
+    )
+    filter_digit = map(
+        lambda x: "".join(char for char in x if char.isalpha()), sorted_words
+    )
+    return " ".join(filter_digit)
 
 
-print(f1(s))
+print(func1(s))
+
+
+# s = "py3thon ja2va go1"
+
+
+# def f1(s: str):
+#     words = s.split()
+#     clean_words = map(lambda w: "".join(filter(str.isalpha, w)), words)
+#     return " ".join(clean_words)
+
+
+# print(f1(s))
