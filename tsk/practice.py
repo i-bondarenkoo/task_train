@@ -124,3 +124,125 @@
 
 
 # print(f1(s))
+
+# ------------СПИСКИ-----------------
+# Сумма элементов списка
+# [1, 2, 3, 4, 5] → 15
+# lst = [1, 2, 3, 4, 5]
+
+
+# def sum_digit(l: list):
+#     # return sum(lst)
+#     counter = 0
+#     for elements in l:
+#         counter += elements
+#     return counter
+
+
+# print(sum_digit(lst))
+
+# # Найти максимальный элемент (НЕ через max)
+# l1 = [-3, -1, -9, -2]
+
+
+# def search_maximum(l: list):
+#     maxi = l[0]
+#     for element in l[1:]:
+#         if element > maxi:
+#             maxi = element
+#     return maxi
+
+
+# print(search_maximum(l1))
+# # Подсчитать количество чётных чисел
+# l2 = [1, 2, 3, 4, 6, 2]
+
+
+# def count_digit(l: list):
+#     counter = 0
+#     for element in l:
+#         if element % 2 == 0:
+#             counter += 1
+#     return counter
+
+
+# print(count_digit(l2))
+# # Создать новый список только из положительных чисел
+# # [-1, 3, 0, -5, 7] → [3, 7]
+# l3 = [-1, 3, 0, -5, 7]
+
+
+# def gen_list(l: list):
+#     return [num for num in l if num > 0]
+
+
+# print(gen_list(l3))
+
+# развернуть список в ручную
+# [1, 2, 3, 4] → [4, 3, 2, 1]
+# lst = [1, 2, 3, 4]
+
+
+# def rev_list(l: list):
+#     new_list = []
+#     # for element in l:
+#     #     new_list.insert(0, element)
+#     # return new_list
+#     ind = range(len(l) - 1, -1, -1)
+#     print(type(ind))
+#     for el in ind:
+#         new_list.append(l[el])
+
+#     return new_list
+
+
+# print(rev_list(lst))
+
+# Найти второй максимум
+# [5, 1, 9, 7, 9] → 7
+# ls = [5, 1, 9, 7, 9, 8]
+
+
+# def search_second_max(l: list):
+#     max_1 = l[0]
+#     max_2 = l[1]
+#     if max_2 > max_1:
+#         m3 = max_2
+#         max_2 = max_1
+#         max_1 = m3
+#     for elem in l[2:]:
+#         if elem > max_1:
+#             max_2 = max_1
+#             max_1 = elem
+#         elif elem < max_1 and elem > max_2:
+#             max_2 = elem
+#     return max_2
+
+
+# print(search_second_max(ls))
+
+# проверить отсортирован ли список
+# [1, 2, 3, 5] → True
+# [1, 3, 2] → False
+# [5] → True
+# [] → True
+
+l1 = [1, 2, 3, 5]
+l2 = [1, 3, 2]
+l3 = [5]
+l4 = []
+
+
+def check_sorted_list(l: list):
+    if len(l) == 0 or len(l) == 1:
+        return True
+    for i in range(len(l) - 1):
+        if l[i] > l[i + 1]:
+            return False
+    return True
+
+
+print(check_sorted_list(l1))
+print(check_sorted_list(l2))
+print(check_sorted_list(l3))
+print(check_sorted_list(l4))
