@@ -227,22 +227,78 @@
 # [5] → True
 # [] → True
 
-l1 = [1, 2, 3, 5]
-l2 = [1, 3, 2]
-l3 = [5]
-l4 = []
+# l1 = [1, 2, 3, 5]
+# l2 = [1, 3, 2]
+# l3 = [5]
+# l4 = []
 
 
-def check_sorted_list(l: list):
-    if len(l) == 0 or len(l) == 1:
-        return True
-    for i in range(len(l) - 1):
-        if l[i] > l[i + 1]:
-            return False
-    return True
+# def check_sorted_list(l: list):
+#     if len(l) == 0 or len(l) == 1:
+#         return True
+#     for i in range(len(l) - 1):
+#         if l[i] > l[i + 1]:
+#             return False
+#     return True
 
 
-print(check_sorted_list(l1))
-print(check_sorted_list(l2))
-print(check_sorted_list(l3))
-print(check_sorted_list(l4))
+# print(check_sorted_list(l1))
+# print(check_sorted_list(l2))
+# print(check_sorted_list(l3))
+# print(check_sorted_list(l4))
+
+# -------------------Операторы и циклы------------------
+# words = ["a1", "b1", "c2", "d2", "e1"]
+
+
+# def func1(w: list):
+#     for ind, value in enumerate(w):
+#         if "1" in value:
+#             print(ind, value)
+#         elif "2" in value:
+#             continue
+#         elif "3" in value:
+#             break
+#     else:
+#         print("Цикл завершился корректно, без break")
+
+
+# print(func1(words))
+# text = "ab1cd2efgh"
+
+
+# def func2(t: str):
+#     for ind, value in enumerate(t):
+#         if value.isdigit():
+#             if value == "1":
+#                 print(value)
+#             elif value == "2":
+#                 continue
+#             elif value == "3":
+#                 break
+
+#     else:
+#         print("Цифра 3 не найдена")
+
+
+# func2(text)
+
+nums = [4, 7, 2, 9, 5, 1, 8]
+
+
+def f3(n: list):
+    i = 0
+    while i < len(n):
+        if n[i] % 2 == 0:
+            print(f"Число:{n[i]}, индекс в последовательности:{i}")
+        elif n[i] == 5:
+            i += 1
+            continue
+        elif n[i] == 1:
+            break
+        i += 1
+    else:
+        print("Число 1 не было найдено")
+
+
+f3(nums)
