@@ -283,22 +283,74 @@
 
 # func2(text)
 
-nums = [4, 7, 2, 9, 5, 1, 8]
+# nums = [4, 7, 2, 9, 5, 1, 8]
 
 
-def f3(n: list):
-    i = 0
-    while i < len(n):
-        if n[i] % 2 == 0:
-            print(f"Число:{n[i]}, индекс в последовательности:{i}")
-        elif n[i] == 5:
-            i += 1
-            continue
-        elif n[i] == 1:
-            break
-        i += 1
-    else:
-        print("Число 1 не было найдено")
+# def f3(n: list):
+#     i = 0
+#     while i < len(n):
+#         if n[i] % 2 == 0:
+#             print(f"Число:{n[i]}, индекс в последовательности:{i}")
+#         elif n[i] == 5:
+#             i += 1
+#             continue
+#         elif n[i] == 1:
+#             break
+#         i += 1
+#     else:
+#         print("Число 1 не было найдено")
 
 
-f3(nums)
+# f3(nums)
+
+# nums = [10, 20, 30]
+# try:
+#     it = iter(nums)
+#     print(next(it))
+#     print(next(it))
+#     print(next(it))
+#     print(next(it))
+# except StopIteration:
+#     print("Итератор закончился")
+
+# matrix = [[1, 2, 3], [4, 5], [6]]
+
+
+# # посчитать сумму всех чисел
+# def list_sum(l: list):
+#     s = 0
+#     for row in matrix:
+#         for num in row:
+#             s += num
+#     return s
+
+
+# print(list_sum(matrix))
+# 1 2 3
+# 2 4 6
+# 3 6 9
+# вывести таблицу в виде 3х3
+# def get_siquence(M: int = 3, N: int = 3):
+#     # lst = []
+#     for i in range(1, M + 1):
+#         for j in range(1, N + 1):
+#             print(i * j, end=" ")
+#         print()
+
+
+# print(get_siquence(5, 5))
+
+
+def foo():
+    result = []
+    row = []
+
+    for i in range(3):
+        row.append(i)
+        result.append(row)
+
+    return result
+
+
+x = foo()
+print(x)
