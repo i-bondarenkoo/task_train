@@ -451,23 +451,57 @@
 
 
 # print(sorted_nums(list1, list2))
+# from collections import defaultdict
+
+# words = ["hi", "hello", "a", "world", "to", "python"]
+
+
+# # Нужно вернуть словарь, где:
+# # ключ — длина строки
+# # значение — список строк этой длины
+# # порядок строк внутри списков должен сохраниться (как в исходном списке)
+
+
+# def make_dictionary(l: list[str]):
+#     d1 = defaultdict(list)
+#     print(d1)
+#     for w in l:
+#         d1[len(w)].append(w)
+#     return d1
+
+
+# print(make_dictionary(words))
 from collections import defaultdict
 
-words = ["hi", "hello", "a", "world", "to", "python"]
+data = [
+    ("apple", 10),
+    ("banana", 5),
+    ("apple", 3),
+    ("orange", 8),
+    ("banana", 2),
+    ("apple", 10),
+]
 
 
+# Каждый кортеж — это:
+# название товара
+# количество
 # Нужно вернуть словарь, где:
-# ключ — длина строки
-# значение — список строк этой длины
-# порядок строк внутри списков должен сохраниться (как в исходном списке)
+# ключ — название товара
+# значение — кортеж из двух элементов:
+# общее количество этого товара
+# количество уникальных значений quantity, которые встречались для этого товара
+from collections import defaultdict
 
 
-def make_dictionary(l: list[str]):
-    d1 = defaultdict(list)
-    print(d1)
-    for w in l:
-        d1[len(w)].append(w)
+def func1(l: list[tuple]):
+    count = [l.count(x) for x in l]
+    print(count)
+    d1 = defaultdict(tuple)
+    for word in l:
+
+        d1[word[0]] = d1.get(word[0], 0) + word[1]
     return d1
 
 
-print(make_dictionary(words))
+print(func1(data))
