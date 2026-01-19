@@ -341,16 +341,133 @@
 # print(get_siquence(5, 5))
 
 
-def foo():
-    result = []
-    row = []
+# def foo():
+#     result = []
+#     row = []
 
-    for i in range(3):
-        row.append(i)
-        result.append(row)
+#     for i in range(3):
+#         row.append(i)
+#         result.append(row)
 
-    return result
+#     return result
 
 
-x = foo()
-print(x)
+# x = foo()
+# print(x)
+
+# Напиши генератор pairs(n), который для n = 4 выдаёт:
+# (0, 1)
+# (1, 2)
+# (2, 3)
+
+
+# def make_gen(n: int):
+#     for i in range(n):
+#         yield (i, i + 1)
+
+
+# g = make_gen(4)
+# print(next(g))
+# print(next(g))
+# print(next(g))
+# print(next(g))
+# # print(next(g))
+
+# s = "a1b22c333d4"
+
+
+# def make_list(s: str):
+#     l = []
+#     for i in range(1, len(s) - 1):
+#         if s[i].isdigit() and s[i - 1].isalpha() and s[i + 1].isalpha():
+#             l.append(s[i])
+#     if s[0].isdigit() and s[1].isalpha():
+#         l.insert(0, s[0])
+#     if s[len(s) - 1].isdigit() and s[len(s) - 2].isalpha():
+#         l.append(s[len(s) - 1])
+#     return [int(num) for num in l if int(num) % 2 == 0]
+
+
+# print(make_list(s))
+# ------------СЛОВАРИ, КОРТЕЖИ, НАБОРЫ -------------
+# Дан список слов.
+# Нужно вернуть словарь, где ключ — слово,
+# значение — сколько раз оно встречается.
+
+# l1 = ["apple", "banana", "apple", "orange", "banana", "apple"]
+
+
+# def count_words(l: list):
+#     d1 = {}
+#     for word in l:
+#         d1[word] = d1.get(word, 0) + 1
+#     return d1
+
+
+# print(count_words(l1))
+
+# Дан список слов.
+# Нужно вернуть первое слово, которое не повторяется.
+# l1 = ["apple", "banana", "apple", "orange", "banana", "apple"]
+
+
+# def get_word(l: list):
+#     # result = [w for w in l1 if l1.count(w) == 1]
+#     # return result[0]
+#     d = {}
+#     for word in l:
+#         d[word] = d.get(word, 0) + 1
+#     for word in l:
+#         if d[word] == 1:
+#             return word
+
+
+# print(get_word(l1))
+
+# nums = [4, 5, 6, 4, 7, 5, 8]
+
+
+# def get_new_list(n: list):
+#     dictionary = {}
+#     for num in nums:
+#         dictionary[num] = dictionary.get(num, 0) + 1
+#     return [num for num in nums if dictionary[num] == 1]
+
+
+# print(get_new_list(nums))
+# list1 = [4, 4, 5, 6, 7, 5, 8]
+# list2 = [5, 6, 9, 4]
+# # Нужно вернуть список чисел, которые встречаются в обоих списках, в порядке первого списка.
+# # Каждое число должно встречаться в результате только один раз.
+
+
+# def sorted_nums(l1: list, l2: list):
+#     set_other = set(l1) & (set(l2))
+#     result = []
+#     for num in l1:
+#         if num in set_other and num not in result:
+#             result.append(num)
+#     return result
+
+
+# print(sorted_nums(list1, list2))
+from collections import defaultdict
+
+words = ["hi", "hello", "a", "world", "to", "python"]
+
+
+# Нужно вернуть словарь, где:
+# ключ — длина строки
+# значение — список строк этой длины
+# порядок строк внутри списков должен сохраниться (как в исходном списке)
+
+
+def make_dictionary(l: list[str]):
+    d1 = defaultdict(list)
+    print(d1)
+    for w in l:
+        d1[len(w)].append(w)
+    return d1
+
+
+print(make_dictionary(words))
