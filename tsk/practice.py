@@ -551,33 +551,95 @@
 
 
 # print(make_dict(data=data))
-orders = [
-    {"user": "user1", "item": "apple", "qty": 3},
-    {"user": "user2", "item": "banana", "qty": 2},
-    {"user": "user1", "item": "banana", "qty": 1},
-    {"user": "user3", "item": "apple", "qty": 2},
-    {"user": "user2", "item": "apple", "qty": 5},
+# orders = [
+#     {"user": "user1", "item": "apple", "qty": 3},
+#     {"user": "user2", "item": "banana", "qty": 2},
+#     {"user": "user1", "item": "banana", "qty": 1},
+#     {"user": "user3", "item": "apple", "qty": 2},
+#     {"user": "user2", "item": "apple", "qty": 5},
+# ]
+
+
+# # Нужно получить вложенный словарь, где:
+# # ключ — пользователь
+# # значение — словарь {товар: общее количество}
+# def count_orders(orders: list[dict]):
+#     d1 = {}
+#     for order in orders:
+#         user = order["user"]
+#         item = order["item"]
+#         qty = order["qty"]
+
+#         if user not in d1:
+#             d1[user] = {}
+#         if item not in d1[user]:
+#             d1[user][item] = qty
+#         else:
+#             d1[user][item] += qty
+
+#     print(d1)
+
+
+# print(count_orders(orders))
+# words = [
+#     "apple",
+#     "banana",
+#     "apple",
+#     "orange",
+#     "banana",
+#     "banana",
+#     "pear",
+# ]
+
+
+# # Нужно получить словарь, где:
+# # ключ — слово
+# # значение — множество индексов, на которых это слово встречается
+# def get_data(w: list[str]):
+#     # d1 = {}
+#     # x = iter(range(len(w)))
+#     # for word in w:
+#     #     if word not in d1:
+#     #         d1[word] = set()
+#     #     d1[word].add(next(x))
+#     # return d1
+#     d1 = {}
+#     for ind, word in enumerate(w):
+#         if word not in d1:
+#             d1[word] = set()
+#         d1[word].add(ind)
+#     return d1
+
+
+# print(get_data(words))
+words = [
+    "python",
+    "java",
+    "python",
+    "go",
+    "java",
+    "rust",
+    "go",
+    "python",
 ]
 
 
-# Нужно получить вложенный словарь, где:
-# ключ — пользователь
-# значение — словарь {товар: общее количество}
-def count_orders(orders: list[dict]):
+# Нужно получить словарь, где:
+# ключ — слово
+# значение — кортеж из двух элементов:
+# количество вхождений слова
+# множество индексов, на которых это слово встречается
+def make_dict(w: list[str]):
     d1 = {}
-    for order in orders:
-        user = order["user"]
-        item = order["item"]
-        qty = order["qty"]
+    for ind, word in enumerate(w):
+        if word not in d1:
+            d1[word] = [0, set()]
 
-        if user not in d1:
-            d1[user] = {}
-        if item not in d1[user]:
-            d1[user][item] = qty
-        else:
-            d1[user][item] += qty
-
-    print(d1)
+        d1[word][0] += 1
+        d1[word][1].add(ind)
+    for k, v in d1.items():
+        d1[k] = tuple(v)
+    return d1
 
 
-print(count_orders(orders))
+print(make_dict(words))
