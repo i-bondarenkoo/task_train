@@ -471,16 +471,16 @@
 
 
 # print(make_dictionary(words))
-from collections import defaultdict
+# from collections import defaultdict
 
-data = [
-    ("apple", 10),
-    ("banana", 5),
-    ("apple", 3),
-    ("orange", 8),
-    ("banana", 2),
-    ("apple", 10),
-]
+# data = [
+#     ("apple", 10),
+#     ("banana", 5),
+#     ("apple", 3),
+#     ("orange", 8),
+#     ("banana", 2),
+#     ("apple", 10),
+# ]
 
 
 # Каждый кортеж — это:
@@ -491,17 +491,93 @@ data = [
 # значение — кортеж из двух элементов:
 # общее количество этого товара
 # количество уникальных значений quantity, которые встречались для этого товара
-from collections import defaultdict
 
 
-def func1(l: list[tuple]):
-    count = [l.count(x) for x in l]
-    print(count)
-    d1 = defaultdict(tuple)
-    for word in l:
+# def func1(l: list[tuple]):
+#     new_data = {}
+#     for name, qty in l:
+#         if name not in new_data:
+#             new_data[name] = [0, set()]
+#         new_data[name][0] += qty
+#         new_data[name][1].add(qty)
 
-        d1[word[0]] = d1.get(word[0], 0) + word[1]
-    return d1
+#     for name in new_data:
+#         total, uniq_set = new_data[name]
+#         new_data[name] = (total, len(uniq_set))
+#     return new_data
 
 
-print(func1(data))
+# print(func1(data))
+
+# words = ["apple", "banana", "apricot", "blueberry", "avocado", "banana"]
+
+
+# # вернуть словарь, где ключ - первая буква, значение - множество уникальных слов на эту букву
+# def sorted_words(w: list):
+#     unique_words = set(w)
+#     dictionary = {}
+#     for word in unique_words:
+#         if word[:1] not in dictionary:
+#             dictionary[word[:1]] = set()
+#         dictionary[word[:1]].add(word)
+#     return dictionary
+
+
+# print(sorted_words(words))
+
+# data = [
+#     ("apple", 10),
+#     ("banana", 5),
+#     ("apple", 7),
+#     ("banana", 3),
+#     ("orange", 8),
+#     ("apple", 5),
+# ]
+
+
+# # Нужно получить словарь, где:
+# # ключ — строка (название)
+# # значение — кортеж из двух чисел (сумма, количество)
+# def make_dict(data: list[tuple]):
+#     d = {}
+#     for name, val in data:
+#         if name not in d:
+#             d[name] = (val, 1)
+#         else:
+#             total, count = d[name]
+#             d[name] = (total + val, count + 1)
+
+#     return d
+
+
+# print(make_dict(data=data))
+orders = [
+    {"user": "user1", "item": "apple", "qty": 3},
+    {"user": "user2", "item": "banana", "qty": 2},
+    {"user": "user1", "item": "banana", "qty": 1},
+    {"user": "user3", "item": "apple", "qty": 2},
+    {"user": "user2", "item": "apple", "qty": 5},
+]
+
+
+# Нужно получить вложенный словарь, где:
+# ключ — пользователь
+# значение — словарь {товар: общее количество}
+def count_orders(orders: list[dict]):
+    d1 = {}
+    for order in orders:
+        user = order["user"]
+        item = order["item"]
+        qty = order["qty"]
+
+        if user not in d1:
+            d1[user] = {}
+        if item not in d1[user]:
+            d1[user][item] = qty
+        else:
+            d1[user][item] += qty
+
+    print(d1)
+
+
+print(count_orders(orders))
