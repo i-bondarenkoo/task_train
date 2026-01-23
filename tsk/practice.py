@@ -611,35 +611,106 @@
 #     return d1
 
 
-# print(get_data(words))
-words = [
-    "python",
-    "java",
-    "python",
-    "go",
-    "java",
-    "rust",
-    "go",
-    "python",
-]
+# # print(get_data(words))
+# words = [
+#     "python",
+#     "java",
+#     "python",
+#     "go",
+#     "java",
+#     "rust",
+#     "go",
+#     "python",
+# ]
 
 
-# Нужно получить словарь, где:
-# ключ — слово
-# значение — кортеж из двух элементов:
-# количество вхождений слова
-# множество индексов, на которых это слово встречается
-def make_dict(w: list[str]):
+# # Нужно получить словарь, где:
+# # ключ — слово
+# # значение — кортеж из двух элементов:
+# # количество вхождений слова
+# # множество индексов, на которых это слово встречается
+# def make_dict(w: list[str]):
+#     d1 = {}
+#     for ind, word in enumerate(w):
+#         if word not in d1:
+#             d1[word] = [0, set()]
+
+#         d1[word][0] += 1
+#         d1[word][1].add(ind)
+#     for k, v in d1.items():
+#         d1[k] = tuple(v)
+#     return d1
+
+
+# print(make_dict(words))
+nums = [1, 2, 2, 3, 4, 4, 5]
+
+
+def get_list(n: list):
     d1 = {}
-    for ind, word in enumerate(w):
-        if word not in d1:
-            d1[word] = [0, set()]
+    result = []
+    for n in nums:
+        d1[n] = d1.get(n, 0) + 1
+        # print(d1)
+    for k in d1:
 
-        d1[word][0] += 1
-        d1[word][1].add(ind)
-    for k, v in d1.items():
-        d1[k] = tuple(v)
-    return d1
+        result.append(k)
+    return result
 
 
-print(make_dict(words))
+print(get_list(nums))
+
+# s = "a1b2c3"
+
+
+# def filter_str(s: str):
+#     sm = 0
+#     s2 = ""
+#     for char in s:
+#         if char.isalpha():
+#             s2 += char
+#         elif char.isdigit():
+#             sm += int(char)
+#     return sm, s2
+
+
+# print(filter_str(s))
+
+# words = ["apple", "banana", "apple", "orange", "banana", "apple", "kiwi"]
+
+
+# def filter_words(words: list[str]):
+#     d1 = {}
+#     for word in words:
+#         d1[word] = d1.get(word, 0) + 1
+#     return max(d1, key=d1.get)
+
+
+# print(filter_words(words))
+# ------------------АРГИ/КВАРГИ---------------------------
+# Напиши функцию show, которая:
+# Принимает любое количество аргументов
+# Печатает
+# сколько всего аргументов
+# сами аргументы одной строкой через пробел
+
+
+# def show_parametrs(*args):
+#     count = len(args)
+#     print(f"Аргументов передано - {count}")
+#     return " ".join(str(el) for el in args)
+
+
+# print(show_parametrs(1, 4, 2, 5, True))
+
+
+# def show_kwargs(**kwargs):
+#     count = len(kwargs)
+#     string = ""
+#     print(f"Количество пар ключ/значение - {count}")
+#     for k, v in kwargs.items():
+#         string += f"{k}={v} "
+#     return string
+
+
+# print(show_kwargs(a=1, b=2, c=3))
