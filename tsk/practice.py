@@ -643,22 +643,22 @@
 
 
 # print(make_dict(words))
-nums = [1, 2, 2, 3, 4, 4, 5]
+# nums = [1, 2, 2, 3, 4, 4, 5]
 
 
-def get_list(n: list):
-    d1 = {}
-    result = []
-    for n in nums:
-        d1[n] = d1.get(n, 0) + 1
-        # print(d1)
-    for k in d1:
+# def get_list(n: list):
+#     d1 = {}
+#     result = []
+#     for n in nums:
+#         d1[n] = d1.get(n, 0) + 1
+#         # print(d1)
+#     for k in d1:
 
-        result.append(k)
-    return result
+#         result.append(k)
+#     return result
 
 
-print(get_list(nums))
+# print(get_list(nums))
 
 # s = "a1b2c3"
 
@@ -714,3 +714,122 @@ print(get_list(nums))
 
 
 # print(show_kwargs(a=1, b=2, c=3))
+# def create_user(username: str, email: str, age=None, is_active=True):
+#     return {
+#         "username": username,
+#         "email": email,
+#         "age": age,
+#         "is_active": is_active
+#     }
+
+
+# print(create_user("igor", "i@mail.com"))
+# print(create_user("igor", "i@mail.com", 30))
+# print(create_user(username="igor", email="i@mail.com", is_active=False))
+
+
+# def format_price(price: int, currency="RUB", *, show_currency=True):
+#     s1 = ""
+#     if show_currency:
+#         s1 = f"{price} {currency}"
+#     else:
+#         s1 += str(price)
+#     return s1
+
+
+# print(format_price(100))
+# print(format_price(100, "USD"))
+# print(format_price(100, show_currency=False))
+
+
+# def sum_numbers(*numbers):
+#     # s = 0
+#     return sum(numbers)
+
+
+# print(sum_numbers(1, 2, 3))
+# print(sum_numbers(10))
+# print(sum_numbers(0))
+
+
+# def find_max(*integers):
+#     if len(integers) == 0:
+#         return None
+#     mx = integers[0]
+#     for i in integers[1:len(integers)]:
+#         if i > mx:
+#             mx = i
+#     return mx
+
+
+# print(find_max(4, 5, 8, 15, 1))
+# print(find_max())
+# print(find_max(2))
+# def build_query(**kwargs):
+#     return "&".join(f"{k}={v}" for k, v in kwargs.items())
+
+
+# print(build_query(page=2, limit=10, sort="name"))
+# print(build_query())
+# print(build_query(limit=15))
+# def print_profile(**kwargs):
+#     for key, value in kwargs.items():
+#         print(f"{key}: {value}")
+
+
+# print(print_profile(name="Oleg", age=27, country="Russia", city="Minsk"))
+# print(print_profile(country="China"))
+
+
+# def send_message(user, text, is_urgent=False):
+#     return f"{user}: {text}, urgent={is_urgent}"
+
+
+# data = ("Igor", "Hello")
+# options = {"is_urgent": True}
+
+# print(send_message(*data, **options))
+
+
+# def merge_dicts(*dictionary):
+#     # d1 = {}
+#     # for x in dictionary:
+#     #     d1 = d1 | x
+#     # return d1
+#     d1 = {}
+#     for x in dictionary:
+#         d1 = {**d1, **x}
+#     return d1
+
+
+# print(merge_dicts({"a": 1, "b": 2}, {"b": 3, "c": 4}, {"d": 5}))
+# ----------------------рекурсия--------------------------
+# вычислить сумму чисел до n
+# def recs(n: int):
+#     if n == 0:
+#         return 0
+#     return n + recs(n - 1)
+
+
+# print(recs(5))
+# def recursia(number: int):
+#     if number < 10:
+#         return 1
+#     return 1 + (recursia(number // 10))
+
+
+# print(recursia(0))
+# print(recursia(7))
+# print(recursia(42))
+# print(recursia(2134))
+
+
+# def is_poli(s: str):
+#     if len(s) <= 1:
+#         return True
+#     return s[0] == s[-1] and is_poli(s[1:-1])
+
+
+# print(is_poli("abba"))
+# print(is_poli("abc"))
+# найти максимальный элемент в списке с помощью рекурсии
