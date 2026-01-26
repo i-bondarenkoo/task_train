@@ -833,3 +833,13 @@
 # print(is_poli("abba"))
 # print(is_poli("abc"))
 # найти максимальный элемент в списке с помощью рекурсии
+
+
+def get_max(l: list[int]):
+    if len(l) == 1:
+        return l[0]
+
+    return l[0] if l[0] > get_max(l[1:]) else get_max(l[1:])
+
+
+print(get_max([8, 22, 15, 10, 17]))
