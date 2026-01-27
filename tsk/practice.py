@@ -833,13 +833,29 @@
 # print(is_poli("abba"))
 # print(is_poli("abc"))
 # найти максимальный элемент в списке с помощью рекурсии
+# def mx_recur(l: list[int]):
+#     if len(l) == 1:
+#         return l[0]
+#     return l[0] if l[0] > mx_recur(l[1:]) else mx_recur(l[1:])
 
 
-def get_max(l: list[int]):
-    if len(l) == 1:
-        return l[0]
+# print(mx_recur([8, 22, 15, 10, 17]))
+# def fact_num(n: int):
+#     if n == 0:
+#         return 1
+#     return n * (fact_num(n - 1))
 
-    return l[0] if l[0] > get_max(l[1:]) else get_max(l[1:])
+
+# print(fact_num(0))
+# print(fact_num(1))
+# print(fact_num(4))
+# написать рекурсивную функцию, которая считает сумму элементов списка
+# def recursion_sum(l: list[int]):
+#     if len(l) == 0:
+#         return 0
+#     return l[0] + recursion_sum(l[1:])
 
 
-print(get_max([8, 22, 15, 10, 17]))
+# print(recursion_sum([1, 2, 3]))
+# print(recursion_sum([]))
+# print(recursion_sum([5]))
