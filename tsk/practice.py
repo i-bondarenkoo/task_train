@@ -904,22 +904,67 @@
 
 
 # outer()
-def make_counter():
-    x = 0
+# def make_counter():
+#     x = 0
 
-    def inc():
-        nonlocal x
-        x += 1
-        return x
+#     def inc():
+#         nonlocal x
+#         x += 1
+#         return x
 
-    return inc
+#     return inc
 
 
-c1 = make_counter()
-print(c1())
-print(c1())
-print(c1())
+# c1 = make_counter()
+# print(c1())
+# print(c1())
+# print(c1())
 # # make_counter создаёт переменную x и функцию inc.
 # # Функция inc использует x, поэтому Python сохраняет x, даже когда make_counter закончилась.
 # # Пока существует функция inc, существует и x.
 # # Каждый вызов inc() работает с тем же самым x
+
+
+# Напиши функцию make_power(n), которая:
+# принимает число n
+# возвращает функцию
+# возвращённая функция принимает число x
+# и возвращает x в степени n
+# def make_power(n: int):
+#     def inner(x: int):
+#         result = x**n
+#         return result
+
+#     return inner
+
+
+# t = make_power(3)
+# print(t(2))
+# print(t(5))
+# print(t(6))
+
+
+def add(a, b):
+    return a + b
+
+
+# Нужно изменить её поведение так, чтобы:
+# Перед выполнением печаталось:
+# calling add
+# После выполнения печаталось:
+# result = <значение>
+# Сам код add менять нельзя
+# Использовать вложенную функцию
+# Вернуть функцию, а не результат
+def decorator(func):
+    def wrapper(*args, **kwargs):
+        print("вызываем оригинальную функцию add")
+        result = func(*args, **kwargs)
+        print(f"функция отработала, result={result}")
+        return result
+
+    return wrapper
+
+
+res = decorator(add)
+print(res(5, 7))
