@@ -944,27 +944,140 @@
 # print(t(6))
 
 
-def add(a, b):
-    return a + b
+# def add(a, b):
+#     return a + b
 
 
-# Нужно изменить её поведение так, чтобы:
-# Перед выполнением печаталось:
-# calling add
-# После выполнения печаталось:
-# result = <значение>
-# Сам код add менять нельзя
-# Использовать вложенную функцию
-# Вернуть функцию, а не результат
-def decorator(func):
-    def wrapper(*args, **kwargs):
-        print("вызываем оригинальную функцию add")
-        result = func(*args, **kwargs)
-        print(f"функция отработала, result={result}")
-        return result
+# # Нужно изменить её поведение так, чтобы:
+# # Перед выполнением печаталось:
+# # calling add
+# # После выполнения печаталось:
+# # result = <значение>
+# # Сам код add менять нельзя
+# # Использовать вложенную функцию
+# # Вернуть функцию, а не результат
+# def decorator(func):
+#     def wrapper(*args, **kwargs):
+#         print("вызываем оригинальную функцию add")
+#         result = func(*args, **kwargs)
+#         print(f"функция отработала, result={result}")
+#         return result
 
-    return wrapper
+#     return wrapper
 
 
-res = decorator(add)
-print(res(5, 7))
+# res = decorator(add)
+# print(res(5, 7))
+
+
+# нужно написать декоратор, который
+# печатает имя функции перед вызовом
+# печатает результат после вызова
+# from functools import wraps
+
+
+# def logger(func):
+#     @wraps(func)
+#     def wrapper(*args, **kwargs):
+#         print(func.__name__)
+#         res = func(*args, **kwargs)
+#         print(f"Результат работы - {res}")
+#         return res
+
+#     return wrapper
+
+
+# # @logger
+# def multiply(a, b):
+#     """умножает два числа"""
+#     return a * b
+
+
+# multiply = logger(multiply)
+# print(multiply(3, 4))
+# print(multiply.__name__)
+# print(multiply.__doc__)
+# print(multiply.__wrapped__)
+
+
+# def repeat(n):
+#     def real_decorator(func):
+#         def wrapper(*args, **kwargs):
+#             for _ in range(1, n + 1):
+#                 result = func(*args, **kwargs)
+#             return result
+
+#         return wrapper
+
+#     return real_decorator
+
+
+# @repeat(3)
+# def hello():
+#     print("hello")
+
+
+# # hello = repeat(3)(hello)
+# print(hello())
+# Получить сумму цифр в строке
+# s = "a1b22c333d4"
+
+
+# def get_sum(string: str):
+#     return sum(int(x) for x in string if x.isdigit())
+
+
+# res = get_sum(s)
+# print(res)
+
+# words = ["hi", "hello", "world", "python", "ok"]
+
+
+# def gen_words(w: list[str]):
+#     return (len(x) for x in w if len(x) > 3)
+
+
+# r = gen_words(words)
+# for i in r:
+#     print(i)
+# nums = [1, 2, 2, 5, 3, 10]
+
+
+# # Написать функцию-генератор, которая:
+# # возвращает первый элемент всегда
+# # дальше возвращает элемент только если он больше предыдущего возвращённого
+# def gen_nums(n: list):
+#     prev = None
+#     for x in n:
+#         if prev is None:
+#             yield x
+#             prev = x
+#         elif x > prev:
+#             yield x
+#             prev = x
+
+
+# g = gen_nums(nums)
+# for x in g:
+#     print(x)
+data = ["10", " 20 ", "30\n", "  40"]
+
+
+def get_nums(d: int):
+    res = map(str.strip, d)
+    return map(int, res)
+
+
+print(get_nums(data))
+from collections import defaultdict
+
+words = ["apple", "hi", "banana", "ok", "pear"]
+
+
+def get_tuple(w: list):
+
+    a = map(lambda x: (x, len(x)), filter(lambda x: len(x) > 3, w))
+    return list(a)
+
+
+print(get_tuple(words))
