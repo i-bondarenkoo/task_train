@@ -1059,25 +1059,88 @@
 
 # g = gen_nums(nums)
 # for x in g:
-#     print(x)
-data = ["10", " 20 ", "30\n", "  40"]
+# #     print(x)
+# data = ["10", " 20 ", "30\n", "  40"]
 
 
-def get_nums(d: int):
-    res = map(str.strip, d)
-    return map(int, res)
+# def get_nums(d: int):
+#     res = map(str.strip, d)
+#     return map(int, res)
 
 
-print(get_nums(data))
-from collections import defaultdict
+# print(get_nums(data))
+# from collections import defaultdict
 
-words = ["apple", "hi", "banana", "ok", "pear"]
-
-
-def get_tuple(w: list):
-
-    a = map(lambda x: (x, len(x)), filter(lambda x: len(x) > 3, w))
-    return list(a)
+# words = ["apple", "hi", "banana", "ok", "pear"]
 
 
-print(get_tuple(words))
+# def get_tuple(w: list):
+
+#     a = map(lambda x: (x, len(x)), filter(lambda x: len(x) > 3, w))
+#     return list(a)
+
+
+# print(get_tuple(words))
+# data = ["123", "abc", "45", "", "7x", "9"]
+
+
+# def filter_data(d: list[str]):
+#     return list(filter(lambda x: x.isdigit(), d))
+
+
+# print(filter_data(data))
+
+# values = [10, "20", 0, "0", 5, "", None, "7"]
+
+
+# def sort_elements(v: list):
+#     return list(filter(lambda x: x, v))
+
+
+# # print(sort_elements(values))
+# names = ["Ann", "Bob", "Charlie"]
+# scores = [85, 92, 78]
+
+
+# # получить итератор
+# def join_list(n: list, s: list):
+#     return list(zip(n, s))
+
+
+# print(join_list(n=names, s=scores))
+
+# keys = ["id", "name", "age"]
+# values_list = [
+#     [1, "Ann", 25],
+#     [2, "Bob", 30],
+#     [3, "Charlie", 22],
+# ]
+
+
+# # получить итератор словарей
+# def iter_dict(key, values):
+#     t1 = map(lambda x: dict(zip(key, x)), values)
+#     return t1
+
+
+# a = iter_dict(key=keys, values=values_list)
+# for i in a:
+#     print(i)
+# words = ["hi", "hello", "world", "python", "ok"]
+
+
+# # отсортировать по длине слова, по возрастанию, получить новый список
+# def srt_word(w: list):
+#     return sorted(w, key=lambda word: len(word))
+
+
+# print(srt_word(words))
+# s = "abcXYZ"
+
+
+# # проверить что все символы буквы
+# def check_word(s: str):
+#     return all(x.isalpha for x in s)
+
+
+# print(check_word(s))
