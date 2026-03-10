@@ -4,7 +4,7 @@ class Comment:
         self.author = author
 
     def __str__(self):
-        return f"Comment=(text:{self.text}, author:{self.author})"
+        return f"Comment=({self.text}, {self.author})"
 
 
 class Post:
@@ -13,7 +13,8 @@ class Post:
         self.comments = []
 
     def add_comment(self, text: str, author: str):
-        comment = Comment(text, author)
+        user = User(author)
+        comment = Comment(text, user)
         self.comments.append(comment)
 
     def show_comments(self):
@@ -21,7 +22,17 @@ class Post:
             print(com)
 
 
+class User:
+    def __init__(self, name: str):
+        self.name = name
+
+    def __str__(self):
+        return f"{self.name}"
+
+
 post = Post("My first post")
-post.add_comment("Nice post!", "Alex")
-post.add_comment("Thanks", "Igor")
+alex = User("Alex")
+igor = User("Igor")
+post.add_comment("Nice post!", alex)
+post.add_comment("Thanks", igor)
 post.show_comments()
