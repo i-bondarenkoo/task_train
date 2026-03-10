@@ -21,10 +21,21 @@ class Post:
         for com in self.comments:
             print(com)
 
+    def __str__(self):
+        return f"Post=({self.name})"
+
 
 class User:
     def __init__(self, name: str):
         self.name = name
+        self.posts = []
+
+    def add_post(self, post: Post):
+        self.posts.append(post)
+
+    def show_posts(self):
+        for x in self.posts:
+            print(x)
 
     def __str__(self):
         return f"{self.name}"
@@ -33,6 +44,10 @@ class User:
 post = Post("My first post")
 alex = User("Alex")
 igor = User("Igor")
+igor.add_post(post)
+print("-----")
+igor.show_posts()
+print("-----")
 post.add_comment("Nice post!", alex)
 post.add_comment("Thanks", igor)
 post.show_comments()
