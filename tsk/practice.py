@@ -1144,3 +1144,33 @@
 
 
 # print(check_word(s))
+
+# s1 = "123"
+# s2 = s1[:]
+# print(id(s1))
+# print(id(s2))
+# print(s1 == s2)
+
+# from functools import wraps
+
+
+# def greet(func):
+#     @wraps(func)
+#     def wrapper(*args, **kwargs):
+#         print("Эта строка выполнится перед сложением")
+#         result = func(*args, **kwargs)
+#         print("Эта строка выполнится после сложения")
+#         return result
+
+#     return wrapper
+
+
+# @greet
+# def add_two(a: int, b: int):
+#     return a + b
+
+
+# print(add_two(1, 4))
+# print(add_two.__name__)
+# # add_two = greet(add_two)
+# # print(add_two(3, 4))
