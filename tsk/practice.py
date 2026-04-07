@@ -1174,3 +1174,33 @@
 # print(add_two.__name__)
 # # add_two = greet(add_two)
 # # print(add_two(3, 4))
+
+
+class Singleton:
+
+    __instance = None
+    test = 123
+
+    def __new__(cls, *args, **kwargs):
+        if cls.__instance is None:
+            cls.__instance = super().__new__(cls)
+        return cls.__instance
+
+    def __init__(self, name: str):
+        if not hasattr(self, "initialized"):
+            self.name = name
+            self.initialized = True
+
+    def __str__(self):
+        return f"Singleton(name={self.name})"
+
+    def kek(self):
+        print(self.test)
+
+
+s1 = Singleton("Igor")
+s2 = Singleton("Vova")
+print(s1)  # Singleton(name=Igor)
+print(s2)  # Singleton(name=Igor)
+print(s1.__dict__)  # {'name': 'Igor', 'initialized': True}
+# print(Singleton.__dict__)
