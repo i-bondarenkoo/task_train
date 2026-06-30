@@ -4,6 +4,7 @@ from functools import wraps
 
 def repeat(n: int):
     def real_decorator(func):
+        @wraps(func)
         def wrapper(*args, **kwargs):
             for _ in range(0, n):
                 result = func(*args, **kwargs)
@@ -16,14 +17,17 @@ def repeat(n: int):
 
 # @repeat(4)
 def greet(name):
+    print("jopa")
     return f"Привет, {name}"
 
 
 greet = repeat(4)(greet)
 print(greet("Саша"))
+print(greet.__name__)
 
 
 def print_name(func):
+    @wraps(func)
     def wrapper(*args, **kwargs):
         print(f"Имя вызываемой функции - {func.__name__}")
         result = func(*args, **kwargs)
@@ -39,3 +43,4 @@ def sum_two(a: int, b: int):
 
 sum_two = print_name(sum_two)
 print(sum_two(2, 5))
+print(sum_two.__name__)
