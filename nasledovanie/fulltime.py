@@ -1,4 +1,5 @@
 from employee import Employee
+from bonus import Bonus
 
 
 class FullTimeEmployee(Employee):
@@ -14,3 +15,9 @@ class FullTimeEmployee(Employee):
 
 # ft_employee = FullTimeEmployee("Igor", "backend developer", 25, 150000)
 # print(ft_employee.get_salary())
+
+
+class FullTimeWithBonus(Bonus, FullTimeEmployee):
+    def __init__(self, name, post, age, salary, amount):
+        FullTimeEmployee.__init__(self, name, post, age, salary)
+        self.amount = amount

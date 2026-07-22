@@ -14,3 +14,4 @@ class HourlyEmployee(Employee):
 
 # h_employee = HourlyEmployee("Andy", 250, 20)
 # print(h_employee.get_salary())
+# print(h_employee.__dict__)
