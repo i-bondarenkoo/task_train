@@ -1176,31 +1176,75 @@
 # # print(add_two(3, 4))
 
 
-class Singleton:
+# class Singleton:
 
-    __instance = None
-    test = 123
+#     __instance = None
+#     test = 123
 
-    def __new__(cls, *args, **kwargs):
-        if cls.__instance is None:
-            cls.__instance = super().__new__(cls)
-        return cls.__instance
+#     def __new__(cls, *args, **kwargs):
+#         if cls.__instance is None:
+#             cls.__instance = super().__new__(cls)
+#         return cls.__instance
 
-    def __init__(self, name: str):
-        if not hasattr(self, "initialized"):
-            self.name = name
-            self.initialized = True
+#     def __init__(self, name: str):
+#         if not hasattr(self, "initialized"):
+#             self.name = name
+#             self.initialized = True
 
-    def __str__(self):
-        return f"Singleton(name={self.name})"
+#     def __str__(self):
+#         return f"Singleton(name={self.name})"
 
-    def kek(self):
-        print(self.test)
+#     def kek(self):
+#         print(self.test)
 
 
-s1 = Singleton("Igor")
-s2 = Singleton("Vova")
-print(s1)  # Singleton(name=Igor)
-print(s2)  # Singleton(name=Igor)
-print(s1.__dict__)  # {'name': 'Igor', 'initialized': True}
-# print(Singleton.__dict__)
+# s1 = Singleton("Igor")
+# s2 = Singleton("Vova")
+# print(s1)  # Singleton(name=Igor)
+# print(s2)  # Singleton(name=Igor)
+# print(s1.__dict__)  # {'name': 'Igor', 'initialized': True}
+# # print(Singleton.__dict__)
+
+# s1 = "1a23"
+# it = iter(s1)
+# print(next(it))
+# print(next(it))
+# print(next(it))
+# print(next(it))
+# # print(next(it))
+# it2 = it
+# # print(next(it2))
+
+# g1 = (i**2 for i in range(6))
+# for e in g1:
+#     print(e)
+
+
+# def gen(n: int):
+#     while n >= 0:
+#         yield n
+#         n -= 1
+
+
+# g = gen(3)
+# for e1 in g:
+#     print(e1)
+digit = [1, 4]
+it = iter(digit)
+print(next(it))
+print(next(it))
+it2 = it
+print(next(it))
+# print(next(it2))
+# def outer():
+#     x = 10
+
+#     def inner():
+#         return x * 2
+
+#     return inner
+
+
+# my_func = outer()
+# print(my_func())
+# print(my_func())
