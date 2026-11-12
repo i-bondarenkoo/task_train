@@ -16,11 +16,13 @@ async def main():
     # await task1
     # await task2
     result = await p.count_lines(
-        "C:/Users/i.bondarenko/Desktop/task_practice/ex5/example/1.txt",
+        # "C:/Users/i.bondarenko/Desktop/22/ex5/example/1.txt",
+        "C:/Users/БОНДАРЕНКО/Desktop/22/ex5/example/1.txt"
     )
     print(result)
     result2 = await p.count_chars(
-        "C:/Users/i.bondarenko/Desktop/task_practice/ex5/example/2.txt",
+        # "C:/Users/i.bondarenko/Desktop/22/ex5/example/2.txt",
+        "C:/Users/БОНДАРЕНКО/Desktop/22/ex5/example/2.txt"
     )
     print(result2)
 
