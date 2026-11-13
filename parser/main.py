@@ -10,10 +10,13 @@ async def fetch(
     edit_url = f"{url_in}/{str(posts_id)}"
     try:
         response = await session.get(edit_url)
+    except aiohttp.ClientError:
+        print("Проблема с сетью")
+    else:
         if response.status == 200:
             return await response.json()
-    except Exception:
-        print("Неудачный запрос")
+        else:
+            print(f"Ответ сервера - {response.status}")
 
 
 async def get_http_session():
@@ -24,8 +27,8 @@ async def get_http_session():
 if __name__ == "__main__":
 
     async def main():
-        coroutins: list = []
-        url = "https://jsonplaceholder.typicode.com/posts"
+        # coroutins: list = []
+        url = "https://jsonplaceholder.typicode.com/posts123"
         session = await get_http_session()
         # for _ in range(5):
         #     coroutins.append(fetch(url_in=url, session=session))
