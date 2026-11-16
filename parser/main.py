@@ -41,7 +41,7 @@ async def fetch(
     except aiohttp.ClientError:
         print("Проблема с сетью")
     except ValidationError:
-        print("Поля модели не соответствуют")
+        print("Поля модели не соответствуют схеме")
     else:
         print(f"Ответ сервера - {response.status}")
 
